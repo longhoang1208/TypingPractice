@@ -19,9 +19,24 @@ This is a typing practice site where user practice typing within a selected time
 - HTML
 - CSS
 
-## Words source
-`english_1k.json` from `Monkeytype`:
-https://github.com/monkeytypegame/monkeytype/blob/master/frontend/static/languages/english_1k.json
+## Data Attribution
+This project uses the `english_1k.json` English word list
+from `Monkeytype`.
+
+Original repository:
+https://github.com/monkeytypegame/monkeytype
+
+Monkeytype is an open-source typing website.
+
+This project only uses the referenced word list as a
+vocabulary data source. The typing logic, user interface,
+and other functionality were independently developed.
+
+This is an independent educational project and is not
+affiliated with or endorsed by Monkeytype.
+
+Please refer to the original repository and the applicable
+license for the terms governing reuse of the word list.
 
 ## GitHub page
 https://leon-h282.github.io/TypingPractice/
