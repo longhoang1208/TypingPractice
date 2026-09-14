@@ -9,7 +9,7 @@ let displayedList = [];
 let typedList = [];
 let wordList  = {"words": []}; 
 let currentWordIndex = 0;
-let charCounted = 0;
+let correctCount = 0;
 
 const cursor = document.createElement("span");
 cursor.id = "cursor";
@@ -124,13 +124,13 @@ function updateCursor() {
 function finished() {
     hiddenInput.disabled = true;
     cursor.style.opacity = 0;
-    const WPM = Math.round(((charCounted/5)/(totalSecond/60)));
+    const WPM = Math.round(((correctCount/5)/(totalSecond/60)));
     typingContent.textContent = `${WPM} WPM`;
     typingContent.style.fontSize = "10cqw";
     
     countdownDisplay.textContent = `${remain}s`;
     resetTimer();
-    charCounted = 0;
+    correctCount = 0;
 
     if (countdownTimer) {
         clearInterval(countdownTimer);
@@ -221,7 +221,7 @@ hiddenInput.addEventListener("input", () => {
         })
 
         if (typedTrimmed === targeWord) {
-            charCounted += typedTrimmed.length + 1;
+            correctCount += typedTrimmed.length + 1;
         }
 
         currentWordIndex ++;    // tăng index để chuyển sang từ mói
