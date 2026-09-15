@@ -10,6 +10,7 @@ let typedList = [];
 let wordList  = {"words": []}; 
 let currentWordIndex = 0;
 let correctCount = 0;
+let totalTypedCount = 0;
 
 const cursor = document.createElement("span");
 cursor.id = "cursor";
@@ -124,13 +125,20 @@ function updateCursor() {
 function finished() {
     hiddenInput.disabled = true;
     cursor.style.opacity = 0;
+
     const WPM = Math.round(((correctCount/5)/(totalSecond/60)));
-    typingContent.textContent = `${WPM} WPM`;
-    typingContent.style.fontSize = "10cqw";
+    const ACC = totalTypedCount > 0
+    ? Math.round((correctCount / totalTypedCount) * 100)
+    : 0;
+    
+    typingContent.textContent = `${WPM} WPM | ${ACC}% Acc`;
+    typingContent.style.fontSize = "6cqw";
     
     countdownDisplay.textContent = `${remain}s`;
     resetTimer();
+
     correctCount = 0;
+    totalTypedCount = 0;
 
     if (countdownTimer) {
         clearInterval(countdownTimer);
@@ -175,7 +183,7 @@ hiddenInput.addEventListener('keydown', (e) => {
         e.preventDefault();  // Ngăn trình duyệt chèn khoảng trắng vào input
 
         let typed = hiddenInput.value;
-        
+
         // Danh sách các từ hiện tại trên văn bản gốc
         const wordElements = typingContent.querySelectorAll(".word");
 
@@ -183,7 +191,7 @@ hiddenInput.addEventListener('keydown', (e) => {
         const currentWordEl = wordElements[currentWordIndex];
 
         // Từ mẫu tương ứng (String)
-        const targeWord = displayedList[currentWordIndex];
+        const targetWord = displayedList[currentWordIndex];
 
         // Danh sách các ký tự trong từ đang gõ
         const chars = currentWordEl.querySelectorAll(".char");
@@ -197,9 +205,20 @@ hiddenInput.addEventListener('keydown', (e) => {
             }
         })
 
-        if (typedTrimmed === targeWord) {
-            correctCount += typedTrimmed.length + 1;
+        // Đếm số ký tự gõ đúng
+        for (let i = 0; i < typedTrimmed.length; i++) {
+            if (i < targetWord.length && typedTrimmed[i] === targetWord[i]) {
+                correctCount++;
+            }
         }
+
+        // Nếu từ gõ đúng hoàn toàn -> cộng thêm 1 điểm cho phím Space hợp lệ
+        if (typedTrimmed === targetWord) {
+            correctCount ++;
+        }
+
+        // Cộng tổng số ký tự đã gõ (bao gồm phím Space (+1))
+        totalTypedCount += typedTrimmed.length + 1;
 
         currentWordIndex ++;    // tăng index để chuyển sang từ mói
         hiddenInput.value = ""; // reset input value
@@ -223,7 +242,7 @@ hiddenInput.addEventListener('input', () => {
     const currentWordEl = wordElements[currentWordIndex];
 
     // Từ mẫu tương ứng (String)
-    const targeWord = displayedList[currentWordIndex];
+    const targetWord = displayedList[currentWordIndex];
 
     // Danh sách các ký tự trong từ đang gõ
     const chars = currentWordEl.querySelectorAll(".char");
@@ -232,7 +251,7 @@ hiddenInput.addEventListener('input', () => {
     // (không chặn dấu space kết thúc từ, để vẫn có thể chuyển từ)
     
     // Số từ gõ sư tối đa
-    const maxAllowedLen = targeWord.length + errorMaxLen;
+    const maxAllowedLen = targetWord.length + errorMaxLen;
     if (typed.length > maxAllowedLen) {
         typed = typed.slice(0, maxAllowedLen);
         hiddenInput.value = typed;
@@ -264,9 +283,9 @@ hiddenInput.addEventListener('input', () => {
         });
 
         // Highlight đúng sai
-        for (let i=0; i < Math.min(typed.length, targeWord.length); i++) {
-            if (i < targeWord.length) {
-                if (typed[i] === targeWord[i]) {
+        for (let i=0; i < Math.min(typed.length, targetWord.length); i++) {
+            if (i < targetWord.length) {
+                if (typed[i] === targetWord[i]) {
                     chars[i].style.color = "yellow"; // Đúng
                 } else {
                     chars[i].style.color = "red";    // Sai
@@ -275,10 +294,10 @@ hiddenInput.addEventListener('input', () => {
             }
         }
 
-        if (typed.length > targeWord.length) {
+        if (typed.length > targetWord.length) {
             const extra = typed.substring(
-                targeWord.length,
-                Math.min(typed.length, targeWord.length + errorMaxLen)
+                targetWord.length,
+                Math.min(typed.length, targetWord.length + errorMaxLen)
             );
 
             extraSpan.textContent = extra;
