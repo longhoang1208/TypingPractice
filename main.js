@@ -14,7 +14,7 @@ let correctCount = 0;
 const cursor = document.createElement("span");
 cursor.id = "cursor";
 
-countdownDisplay   = document.getElementById("countdown")
+const countdownDisplay = document.getElementById("countdown")
 let timeSelection  = document.getElementById("select-time");
 let totalSecond    = Number(timeSelection.value);
 let startCountdown = false;
@@ -169,48 +169,25 @@ textBox.addEventListener("click", () => {
 window.addEventListener("load", () => hiddenInput.focus());
 
 
-hiddenInput.addEventListener("input", () => {
-    let typed = hiddenInput.value;
+// Nhấn space -> chuyển sang từ tiếp theo, không thể gõ lại
+hiddenInput.addEventListener('keydown', (e) => {
+    if (e.key === " " || e.code === "Space") {
+        e.preventDefault();  // Ngăn trình duyệt chèn khoảng trắng vào input
 
-    // Danh sách các từ hiện tại trên văn bản gốc
-    const wordElements = typingContent.querySelectorAll(".word");
+        let typed = hiddenInput.value;
+        
+        // Danh sách các từ hiện tại trên văn bản gốc
+        const wordElements = typingContent.querySelectorAll(".word");
 
-    // Từ đang được gõ trên văn bản gốc (DOM)
-    const currentWordEl = wordElements[currentWordIndex];
+        // Từ đang được gõ trên văn bản gốc (DOM)
+        const currentWordEl = wordElements[currentWordIndex];
 
-    // Từ mẫu tương ứng (String)
-    const targeWord = displayedList[currentWordIndex];
+        // Từ mẫu tương ứng (String)
+        const targeWord = displayedList[currentWordIndex];
 
-    // Danh sách các ký tự trong từ đang gõ
-    const chars = currentWordEl.querySelectorAll(".char");
-
-    // Chặn gõ thêm nếu đã vượt quá giới hạn ký tự thừa cho phép
-    // (không chặn dấu space kết thúc từ, để vẫn có thể chuyển từ)
-    const maxAllowedLen = targeWord.length + errorMaxLen;
-    if (!typed.endsWith(" ") && typed.length > maxAllowedLen) {
-        typed = typed.slice(0, maxAllowedLen);
-        hiddenInput.value = typed;
-    }
-
-    // Tạo span cho chuỗi ký tự bị gõ thừa
-    let extraSpan = currentWordEl.querySelector(".extra");
-    if (!extraSpan) {
-        extraSpan = document.createElement("span");
-        extraSpan.className = "extra";
-        extraSpan.style.color = "red";
-        extraSpan.style.opacity = 0.5;
-        currentWordEl.appendChild(extraSpan);
-    }
-
-    // Bắt đầu đếm ngược thời gian đánh máy
-    if (typed && !startCountdown) {
-        startCountdown = true;
-        startTimer();
-        cursor.style.animation = "none";
-    }
-
-    // Nhấn space -> chuyển sang từ tiếp theo, không thể gõ lại
-    if (typed.endsWith(" ")) {
+        // Danh sách các ký tự trong từ đang gõ
+        const chars = currentWordEl.querySelectorAll(".char");
+        
         const typedTrimmed = typed.trim();
 
         chars.forEach((char, i) => {
@@ -233,7 +210,49 @@ hiddenInput.addEventListener("input", () => {
         }
 
         updateCursor();
-        return;
+    }
+})
+
+hiddenInput.addEventListener('input', () => {
+    let typed = hiddenInput.value;
+
+    // Danh sách các từ hiện tại trên văn bản gốc
+    const wordElements = typingContent.querySelectorAll(".word");
+
+    // Từ đang được gõ trên văn bản gốc (DOM)
+    const currentWordEl = wordElements[currentWordIndex];
+
+    // Từ mẫu tương ứng (String)
+    const targeWord = displayedList[currentWordIndex];
+
+    // Danh sách các ký tự trong từ đang gõ
+    const chars = currentWordEl.querySelectorAll(".char");
+    
+    // Chặn gõ thêm nếu đã vượt quá giới hạn ký tự thừa cho phép
+    // (không chặn dấu space kết thúc từ, để vẫn có thể chuyển từ)
+    
+    // Số từ gõ sư tối đa
+    const maxAllowedLen = targeWord.length + errorMaxLen;
+    if (typed.length > maxAllowedLen) {
+        typed = typed.slice(0, maxAllowedLen);
+        hiddenInput.value = typed;
+    }
+
+    // Tạo span cho chuỗi ký tự bị gõ thừa
+    let extraSpan = currentWordEl.querySelector(".extra");
+    if (!extraSpan) {
+        extraSpan = document.createElement("span");
+        extraSpan.className = "extra";
+        extraSpan.style.color = "red";
+        extraSpan.style.opacity = 0.5;
+        currentWordEl.appendChild(extraSpan);
+    }
+
+    // Bắt đầu đếm ngược thời gian đánh máy
+    if (typed && !startCountdown) {
+        startCountdown = true;
+        startTimer();
+        cursor.style.animation = "none";
     }
 
     // Trong khi đang gõ chữ
