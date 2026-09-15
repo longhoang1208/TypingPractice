@@ -274,6 +274,33 @@ hiddenInput.addEventListener('input', () => {
         cursor.style.animation = "none";
     }
 
+    // Nhấn space -> chuyển sang từ tiếp theo, không thể gõ lại
+    if (typed.endsWith(" ")) {
+        const typedTrimmed = typed.trim();
+
+        chars.forEach((char, i) => {
+            if (i >= typedTrimmed.length) {
+                char.style.color   = "red";
+                char.style.opacity = 0.5;
+            }
+        })
+
+        if (typedTrimmed === targeWord) {
+            correctCount += typedTrimmed.length + 1;
+        }
+
+        currentWordIndex ++;    // tăng index để chuyển sang từ mói
+        hiddenInput.value = ""; // reset input value
+
+        // Reset văn bản mới khi đã gõ đủ số từ
+        if (currentWordIndex >= maxLength) {
+            initTyping();
+        }
+
+        updateCursor();
+        return;
+    }
+
     // Trong khi đang gõ chữ
     if (currentWordIndex < maxLength) {
         // Luôn luôn reset về màu gốc
