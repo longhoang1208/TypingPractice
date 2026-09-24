@@ -39,8 +39,11 @@ options.forEach(option => {
         // Get data-value
         const selectedValue = option.getAttribute('data-value');
 
-        countdownDisplay.textContent = selectedValue;
         totalSecond = selectedValue;
+        countdownDisplay.textContent = `${totalSecond}s`;
+
+        startCountdown = false;
+        initTyping();
     });
 });
 
