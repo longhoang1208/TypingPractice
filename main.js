@@ -16,22 +16,34 @@ const cursor = document.createElement("span");
 cursor.id = "cursor";
 
 const countdownDisplay = document.getElementById("countdown")
-let timeSelection  = document.getElementById("select-time");
-let totalSecond    = Number(timeSelection.value);
+const options = document.querySelectorAll('#select-time .time-option')
+
+let totalSecond = 30;
+countdownDisplay.textContent = `${totalSecond}s`;
+
 let startCountdown = false;
 let remain = totalSecond;
 let countdownTimer = null;
 
 const errorMaxLen = 10;
 
-timeSelection.addEventListener("change", () => {
-    totalSecond = Number(timeSelection.value);
-    remain = totalSecond;
 
-    countdownDisplay.textContent = `${remain}s`;
-    resetTimer();
-    initTyping();
+options.forEach(option => {
+    option.addEventListener('click', () => {
+        // Delete all 'active' classes
+        options.forEach(opt => opt.classList.remove('active'));
+
+        // Add 'active' class to the selected option
+        option.classList.add('active');
+
+        // Get data-value
+        const selectedValue = option.getAttribute('data-value');
+
+        countdownDisplay.textContent = selectedValue;
+        totalSecond = selectedValue;
+    });
 });
+
 
 
 fetch("./english_1k.json")
@@ -63,7 +75,7 @@ function initTyping() {
 function resetTimer() {
     startCountdown = false;
     remain = totalSecond;
-};
+}
 
 
 function getRandomWord() {
@@ -71,7 +83,7 @@ function getRandomWord() {
         Math.floor(Math.random() * wordList.words.length)
     ];
     displayedList.push(word);
-};
+}
 
 
 function mapTypingContent() {
