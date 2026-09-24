@@ -62,7 +62,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
 
-    gap: 1%;
+    gap: 0.5%;
     padding: 0;
 }
 
@@ -70,7 +70,6 @@ body {
 #typing-container #timer #select-time {
     color: rgb(143, 142, 142);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2cqw;
 
     background-color: #080a16;
     background-size: 0 10%;
@@ -88,13 +87,13 @@ body {
 }
 
 #typing-container #timer #select-time .time-option {
-    padding: 8px 16px;
+    margin: 0.3em 1em;
     cursor: pointer;
 
     border-radius: 0.3em;
 
     color: #646669;
-    font-size: 14px;
+    font-size: 1.5cqw;
     font-weight: 500;
     
     transition: all 0.2s ease;
