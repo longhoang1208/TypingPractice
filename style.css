@@ -1,32 +1,45 @@
 
+
 body {
     min-height: 100vh;
-    background:#080a16;
-    background-image:
-        /* Đốm 1: Màu Tím (Góc trên - bên trái) */
-        radial-gradient(circle at 20% 25%, rgba(147, 51, 234, 0.35) 0%, transparent 50%),
-        
-        /* Đốm 2: Màu Xanh Cyan / Xanh dương (Góc trên - bên phải) */
-        radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.35) 0%, transparent 50%),
-        
-        /* Đốm 3: Màu Hồng / Đỏ (Phía dưới - ở giữa) */
-        radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)
-    ;
-    background-size: cover;
+    background: linear-gradient(
+        to right,
+        #080a16,
+        #300211,
+        #080a16,
+        #3b0215
+    );
+    background-size: 300% 150%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: left;
     position: relative;
+
+    animation: change-color 5s ease-in-out infinite;
+}
+
+
+@keyframes change-color {
+    0% {
+        background-position: 0% 50%;
+    }
+    
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
 #page-title {
-    position: absolute;
-    color: white;
+    color: rgb(216, 30, 89);
     font-family: "Fira", monospace;
 
-    margin-top: 1%;
-    text-align: center;
+    margin: 1% 0 5% 1%;
 }
 
 
@@ -37,38 +50,67 @@ body {
     flex-direction: column;
 
     justify-content: center;
-    align-items: center;
 
     gap: 5%;
-    position: absolute;
 }
 
 
-#typing-container #timerNerror {
+#typing-container #timer {
     height: 4%;
-    width: 80%;
 
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
 
     gap: 1%;
     padding: 0;
 }
 
 
-#typing-container #timerNerror #select-time {
+#typing-container #timer #select-time {
     color: rgb(143, 142, 142);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2cqw;
 
     background-color: #080a16;
+    background-size: 0 10%;
+    
+    border: 0.05em solid rgb(102, 102, 102);
     border-radius: 0.3em;
     margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+
+    width: 23%;
+}
+
+#typing-container #timer #select-time .time-option {
+    padding: 8px 16px;
+    cursor: pointer;
+
+    border-radius: 0.3em;
+
+    color: #646669;
+    font-size: 14px;
+    font-weight: 500;
+    
+    transition: all 0.2s ease;
+    user-select: none;
 }
 
 
-#typing-container #timerNerror #countdown {
+#typing-container #timer #select-time .time-option:hover {
+    color: rgb(179, 179, 179);
+}
+
+#typing-container #timer #select-time .time-option.active {
+    color: white;
+}
+
+
+#typing-container #timer #countdown {
     color: rgb(143, 142, 142);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5cqw
@@ -112,9 +154,9 @@ body {
 
 #cursor {
     position: absolute;
-    width: 0.1em;                /* Độ dày của con trỏ */
-    background-color: rgb(255, 249, 186);   /* Dùng màu nền thay vì màu chữ */
-    margin-left: -0.1em;         /* Dịch nhẹ để con trỏ nằm giữa 2 ký tự */
+    width: 0.1em;
+    background-color: rgb(255, 249, 186);
+    margin-left: -0.1em;
     
     transition: left 0.1s ease-out, top 0.05s ease-out;
     animation: blink 1s infinite;
