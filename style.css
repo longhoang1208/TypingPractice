@@ -81,9 +81,10 @@ body {
 
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 3%;
 
-    width: 23%;
+    width: fit-content;
 }
 
 #typing-container #timer #select-time .time-option {
