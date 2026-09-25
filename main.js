@@ -63,7 +63,7 @@ function initTyping() {
     hiddenInput.value = "";
 
     hiddenInput.disabled = false;
-    typingContent.style.fontSize = "3.5cqw";
+    typingContent.style.fontSize = "3.5vw";
 
     cursor.style.opacity   = 1;
     cursor.style.animation = "blink 1s infinite";
@@ -147,7 +147,7 @@ function finished() {
     : 0;
     
     typingContent.textContent = `${WPM} WPM | ${ACC}% Acc`;
-    typingContent.style.fontSize = "6cqw";
+    typingContent.style.fontSize = "6vw";
     
     countdownDisplay.textContent = `${remain}s`;
     resetTimer();

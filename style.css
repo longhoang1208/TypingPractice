@@ -13,7 +13,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     position: relative;
 
     animation: change-color 5s ease-in-out infinite;
@@ -38,7 +38,7 @@ body {
 #page-title {
     color: rgb(216, 30, 89);
     font-family: "Fira", monospace;
-    font-size: 3.5cqw;
+    font-size: 4vw;
 
     margin: 1% 0 5% 1%;
 }
@@ -46,7 +46,7 @@ body {
 
 #typing-container {
     height: 100%;
-    width: 100%;
+    width: 99%;
     margin-left: 1%;
     
     display: flex;
@@ -96,7 +96,7 @@ body {
     border-radius: 0.3em;
 
     color: #646669;
-    font-size: 1.5cqw;
+    font-size: 1.5vw;
     font-weight: 500;
     
     transition: all 0.2s ease;
@@ -116,7 +116,7 @@ body {
 #countdown {
     color: rgb(143, 142, 142);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5cqw
+    font-size: 2.5vw;
 }
 
 
@@ -150,7 +150,7 @@ body {
 #typing-content {
     color      : rgba(179, 178, 178, 0.465);
     font-family: "Fira", monospace;
-    font-size  : 3.5cqw;
+    font-size  : 3.5vw;
     text-align : left;
     position   : relative;
 }
