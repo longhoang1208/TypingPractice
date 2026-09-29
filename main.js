@@ -194,6 +194,13 @@ window.addEventListener("load", () => hiddenInput.focus());
 
 // Nhấn space -> chuyển sang từ tiếp theo, không thể gõ lại
 hiddenInput.addEventListener('keydown', (e) => {
+    // Bắt đầu đếm ngược thời gian đánh máy
+    if (!startCountdown) {
+        startCountdown = true;
+        startTimer();
+    }
+    cursor.style.animation = "none";
+
     if (e.key === " " || e.code === "Space") {
         e.preventDefault();  // Ngăn trình duyệt chèn khoảng trắng vào input
 
@@ -280,13 +287,6 @@ hiddenInput.addEventListener('input', () => {
         extraSpan.style.color = "red";
         extraSpan.style.opacity = 0.5;
         currentWordEl.appendChild(extraSpan);
-    }
-
-    // Bắt đầu đếm ngược thời gian đánh máy
-    if (typed && !startCountdown) {
-        startCountdown = true;
-        startTimer();
-        cursor.style.animation = "none";
     }
 
     // Trong khi đang gõ chữ
