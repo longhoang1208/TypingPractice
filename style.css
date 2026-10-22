@@ -38,28 +38,27 @@ body {
 #page-title {
     color: rgb(216, 30, 89);
     font-family: "Fira", monospace;
-    font-size: 4vw;
+    font-size: 40px;
 
-    margin: 1% 0 5% 1%;
+    margin: 10px 0 30px 20px;
 }
 
 
 #typing-container {
     height: 100%;
-    width: 99%;
-    margin-left: 1%;
+    margin-left: 20px;
     
     display: flex;
     flex-direction: column;
 
     justify-content: center;
 
-    gap: 5%;
+    gap: 10px;
 }
 
 
 #typing-container #timer {
-    height: 4%;
+    height: 90px;
 
     display: flex;
     flex-direction: column;
@@ -77,26 +76,24 @@ body {
     background-color: #080a16;
     background-size: 0 10%;
     
-    border: 0.05em solid rgb(102, 102, 102);
-    border-radius: 0.3em;
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 8px;
     margin: 0;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 3%;
+    gap: 5px;
 
     width: fit-content;
 }
 
 #select-time .time-option {
-    margin: 0.3em 1em;
+    margin: 5px 15px;
     cursor: pointer;
 
-    border-radius: 0.3em;
-
     color: #646669;
-    font-size: 1.5vw;
+    font-size: 16px;
     font-weight: 500;
     
     transition: all 0.2s ease;
@@ -116,7 +113,7 @@ body {
 #countdown {
     color: rgb(143, 142, 142);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5vw;
+    font-size: 28px;
 }
 
 
@@ -125,8 +122,8 @@ body {
     justify-content: center;
     align-items: center;
     
-    width : 80%;
-    min-height: 50%;
+    width : 700px;
+    min-height: 200px;
     height: fit-content;
     background: linear-gradient(
         to bottom right,
@@ -138,9 +135,9 @@ body {
     box-shadow: 0 25px 40px 20px hsla(0, 0%, 0%, 0.576);
 
     border: solid rgb(55, 55, 55) 1px;
-    border-radius: 2em;
+    border-radius: 15px;
 
-    padding: 0 2%;
+    padding: 0 20px;
 }
 
 #text-box:hover {
@@ -150,7 +147,6 @@ body {
 #typing-content {
     color      : rgba(179, 178, 178, 0.465);
     font-family: "Fira", monospace;
-    font-size  : 3.5vw;
     text-align : left;
     position   : relative;
 }
