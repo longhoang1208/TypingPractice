@@ -195,7 +195,10 @@ window.addEventListener("load", () => hiddenInput.focus());
 // Nhấn space -> chuyển sang từ tiếp theo, không thể gõ lại
 hiddenInput.addEventListener('keydown', (e) => {
     // Bắt đầu đếm ngược thời gian đánh máy
-    if (!startCountdown) {
+    if (
+        !startCountdown &&
+        /^[a-zA-z0-9]$/.test(e.key)
+    ) {
         startCountdown = true;
         startTimer();
     }
