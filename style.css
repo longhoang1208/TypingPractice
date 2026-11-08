@@ -1,166 +1,166 @@
 
 
 body {
-    background: linear-gradient(
-        to right,
-        #080a16,
-        #300211,
-        #080a16,
-        #3b0215
-    );
-    background-size: 300% 150%;
+  background: linear-gradient(
+    to right,
+    #080a16,
+    #300211,
+    #080a16,
+    #3b0215
+  );
+  background-size: 300% 150%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
 
-    animation: change-color 5s ease-in-out infinite;
+  animation: change-color 5s ease-in-out infinite;
 }
 
 
 @keyframes change-color {
-    0% {
-        background-position: 0% 50%;
-    }
-    
-    50% {
-        background-position: 100% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  
+  50% {
+    background-position: 100% 50%;
+  }
 
-    100% {
-        background-position: 0% 50%;
-    }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
 #page-title {
-    color: rgb(216, 30, 89);
-    font-family: "Fira", monospace;
-    font-size: 40px;
+  color: rgb(216, 30, 89);
+  font-family: "Fira", monospace;
+  font-size: 40px;
 
-    margin: 10px 0 30px 20px;
+  margin: 10px 0 30px 20px;
 }
 
 
 #typing-container {
-    height: 100%;
-    margin-left: 20px;
-    
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  margin-left: 20px;
+  
+  display: flex;
+  flex-direction: column;
 
-    justify-content: center;
+  justify-content: center;
 
-    gap: 10px;
+  gap: 10px;
 }
 
 
 #typing-container #timer {
-    height: 90px;
+  height: 90px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-    gap: 0.5%;
-    padding: 0;
+  gap: 0.5%;
+  padding: 0;
 }
 
 
 #select-time {
-    color: rgb(143, 142, 142);
-    font-family: Arial, Helvetica, sans-serif;
+  color: rgb(143, 142, 142);
+  font-family: Arial, Helvetica, sans-serif;
 
-    background-color: #080a16;
-    background-size: 0 10%;
-    
-    border: 1px solid rgb(102, 102, 102);
-    border-radius: 8px;
-    margin: 0;
+  background-color: #080a16;
+  background-size: 0 10%;
+  
+  border: 1px solid rgb(102, 102, 102);
+  border-radius: 8px;
+  margin: 0;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
 
-    width: fit-content;
+  width: fit-content;
 }
 
 #select-time .time-option {
-    margin: 5px 15px;
-    cursor: pointer;
+  margin: 5px 15px;
+  cursor: pointer;
 
-    color: #646669;
-    font-size: 16px;
-    font-weight: 500;
-    
-    transition: all 0.2s ease;
-    user-select: none;
+  color: #646669;
+  font-size: 16px;
+  font-weight: 500;
+  
+  transition: all 0.2s ease;
+  user-select: none;
 }
 
 
 #select-time .time-option:hover {
-    color: rgb(179, 179, 179);
+  color: rgb(179, 179, 179);
 }
 
 #select-time .time-option.active {
-    color: white;
+  color: white;
 }
 
 
 #countdown {
-    color: rgb(143, 142, 142);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px;
+  color: rgb(143, 142, 142);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
 }
 
 
 #text-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width : 700px;
-    min-height: 200px;
-    height: fit-content;
-    background: linear-gradient(
-        to bottom right,
-        rgba(48, 48, 48, 0.508),
-        rgba(28, 31, 35, 0.508),
-        rgba(14, 16, 20, 0.81),
-        rgba(12, 15, 21, 0.67)
-    );
-    box-shadow: 0 25px 40px 20px hsla(0, 0%, 0%, 0.576);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width : 700px;
+  min-height: 200px;
+  height: fit-content;
+  background: linear-gradient(
+    to bottom right,
+    rgba(48, 48, 48, 0.508),
+    rgba(28, 31, 35, 0.508),
+    rgba(14, 16, 20, 0.81),
+    rgba(12, 15, 21, 0.67)
+  );
+  box-shadow: 0 25px 40px 20px hsla(0, 0%, 0%, 0.576);
 
-    border: solid rgb(55, 55, 55) 1px;
-    border-radius: 15px;
+  border: solid rgb(55, 55, 55) 1px;
+  border-radius: 15px;
 
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 #text-box:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #typing-content {
-    color      : rgba(179, 178, 178, 0.465);
-    font-family: "Fira", monospace;
-    text-align : left;
-    position   : relative;
+  color      : rgba(179, 178, 178, 0.465);
+  font-family: "Fira", monospace;
+  text-align : left;
+  position   : relative;
 }
 
 #cursor {
-    position: absolute;
-    width: 0.1em;
-    background-color: rgb(255, 249, 186);
-    margin-left: -0.1em;
-    
-    transition: left 0.1s ease-out, top 0.05s ease-out;
-    animation: blink 1s infinite;
+  position: absolute;
+  width: 0.1em;
+  background-color: rgb(255, 249, 186);
+  margin-left: -0.1em;
+  
+  transition: left 0.1s ease-out, top 0.05s ease-out;
+  animation: blink 1s infinite;
 }
 
 @keyframes blink {
-    0%, 100% {opacity: 1;}
-    50% {opacity: 0.5;}
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0.5;}
 }
