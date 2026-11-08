@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TypingPractice</title>
-    
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TypingPractice</title>
+	
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="page-title">TYPING PRACTICE</h1>
+	<h1 id="page-title">TYPING PRACTICE</h1>
 
-    <div id="typing-container">
-        <div id="timer">
-            <div id="select-time">
-                <div class="time-option" data-value="10">10</div>
-                <div class="time-option active" data-value="30">30</div>
-                <div class="time-option" data-value="60">60</div>
-                <div class="time-option" data-value="120">120</div>
-            </div>
-            <h2 id="countdown"></h2>
-        </div>
-        
-        <div id="text-box">
-            <p id="typing-content"></p>
+	<div id="typing-container">
+		<div id="timer">
+			<div id="select-time">
+				<div class="time-option" data-value="10">10</div>
+				<div class="time-option active" data-value="30">30</div>
+				<div class="time-option" data-value="60">60</div>
+				<div class="time-option" data-value="120">120</div>
+			</div>
+			<h2 id="countdown"></h2>
+		</div>
+		
+		<div id="text-box">
+			<p id="typing-content"></p>
 
-            <!-- Hidden input -->
-            <input
-                type="text"
-                id="hidden-input"
-                autocomplete="off"
-                autocorrect="off"
-                autocapitalize="off"
-                spellcheck="false"
-                style="position: absolute; opacity: 0; pointer-events: none;"
-            />
-        </div>
-    </div>
+			<!-- Hidden input -->
+			<input
+					type="text"
+					id="hidden-input"
+					autocomplete="off"
+					autocorrect="off"
+					autocapitalize="off"
+					spellcheck="false"
+					style="position: absolute; opacity: 0; pointer-events: none;"
+			/>
+		</div>
+	</div>
 
-    <script src="./main.js"></script>
+	<script src="./main.js"></script>
 </body>
 </html>
