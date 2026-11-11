@@ -5,7 +5,7 @@
 ## Description
 This is a typing practice site where user practice typing within a selected time limit. There are 3 time limit options: `10s`, `30s`, and `60s`. Typing errors will be displayed redish. When time is up, user will see their typing speed, `WPS`, on the screen.
 
-<img width="800" height="450" alt="TypingPractice" src="https://github.com/user-attachments/assets/36992ab9-1782-45d8-a527-1c0e80f402a4"/>
+<img width="960" height="720" alt="TypingPractice" src="https://github.com/user-attachments/assets/e1d48b22-e515-48ed-aa44-73b1ecb38a30" />
 
 ## Pipeline
 - Get random words from `english_1k.json`.
