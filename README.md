@@ -39,4 +39,4 @@ Please refer to the original repository and the applicable
 license for the terms governing reuse of the word list.
 
 ## GitHub page
-https://leon-h282.github.io/TypingPractice/
+https://longhoang1208.github.io/TypingPractice/
